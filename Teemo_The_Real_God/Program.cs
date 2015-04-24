@@ -83,7 +83,7 @@ namespace Teemo___The_Real_God
             interrupt.AddItem(new MenuItem("intQ", "Use Q").SetValue(true));
 
             misc.AddItem(new MenuItem("packets", "Use Packets").SetValue(false));
-            misc.AddItem(new MenuItem("autoR", "Auto Place Mushrooms").SetValue(true));
+            misc.AddItem(new MenuItem("autoR", "Auto Place Mushrooms (Getting a rework)").SetValue(true));
 
             var ks = Config.AddSubMenu(new Menu("Kill Steal Menu", "Kill Steal Menu"));
             ks.AddItem(new MenuItem("ksQ", "Use Q").SetValue(true));
@@ -91,8 +91,8 @@ namespace Teemo___The_Real_God
             var drawing = Config.AddSubMenu(new Menu("Drawing", "Drawing"));
             drawing.AddItem(new MenuItem("drawQ", "Draw Q Range").SetValue(false));
             drawing.AddItem(new MenuItem("drawR", "Draw R Range").SetValue(false));
-            drawing.AddItem(new MenuItem("drawautoR", "Draw Important Shroom Areas").SetValue(true));
-            drawing.AddItem(new MenuItem("DrawVision", "Shroom Vision").SetValue(new Slider(1500, 2500, 1000)));
+            //drawing.AddItem(new MenuItem("drawautoR", "Draw Important Shroom Areas").SetValue(true));
+            //drawing.AddItem(new MenuItem("DrawVision", "Shroom Vision").SetValue(new Slider(1500, 2500, 1000)));
 
             var flee = Config.AddSubMenu(new Menu("Flee Menu", "Flee"));
             flee.AddItem(new MenuItem("fleetoggle", "Flee").SetValue(new KeyBind(90, KeyBindType.Press)));
@@ -267,14 +267,14 @@ namespace Teemo___The_Real_God
 
         #region AutoShroom
 
-        private static void AutoShroom()
+        /*private static void AutoShroom()
         {
             if (!R.IsReady())
                 return;
             if (Config.SubMenu("Misc").Item("autoR").GetValue<bool>())
                 foreach (var place in ShroomPositions.HighPriority.Where(pos => pos.Distance(ObjectManager.Player.Position) <= R.Range && !IsShroomed(pos)))
                     R.Cast(place, Packets);
-        }
+        }*/
 
         #endregion
 
@@ -379,7 +379,7 @@ namespace Teemo___The_Real_God
         {
             var drawQ = Config.SubMenu("Drawing").Item("drawQ").GetValue<bool>();
             var drawR = Config.SubMenu("Drawing").Item("drawR").GetValue<bool>();
-            var drawautoR = Config.SubMenu("Drawing").Item("drawautoR").GetValue<bool>();
+            //var drawautoR = Config.SubMenu("Drawing").Item("drawautoR").GetValue<bool>();
 
             var player = ObjectManager.Player.Position;
 
@@ -391,11 +391,11 @@ namespace Teemo___The_Real_God
             {
                 Render.Circle.DrawCircle(player, R.Range, R.IsReady() ? System.Drawing.Color.Gold : System.Drawing.Color.Green);
             }
-            if (drawautoR)
+            /*if (drawautoR)
                 foreach (var place in ShroomPositions.HighPriority.Where(pos => pos.Distance(ObjectManager.Player.Position) <= Config.SubMenu("Drawing").Item("DrawVision").GetValue<Slider>().Value))
                 {
                     Render.Circle.DrawCircle(place, 100, System.Drawing.Color.Red);
-                }
+                }*/
         }
         //The following code is taken from UC2's Teemo. All the shroom locations are modified in the recent update for better positioning.
         //To add a shroom location, press T and look at the console for the X Y Z positions and copy the template below to add your own location.
