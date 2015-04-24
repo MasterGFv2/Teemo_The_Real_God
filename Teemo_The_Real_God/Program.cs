@@ -334,7 +334,7 @@ namespace Teemo___The_Real_God
         {
             var target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
 
-            AutoShroom();
+            //AutoShroom();
 
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
