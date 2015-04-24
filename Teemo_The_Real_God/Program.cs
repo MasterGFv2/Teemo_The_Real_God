@@ -76,8 +76,8 @@ namespace Teemo___The_Real_God
 
             Orbwalker = new Orbwalking.Orbwalker(orbwalking);
             Config.AddToMainMenu();
-            Config.AddItem(new MenuItem("autoQ", "Automatic Q").SetValue(false));
-            Config.AddItem(new MenuItem("autoW", "Automatic W").SetValue(false));
+            Config.AddItem(new MenuItem("autoQ", "Automatic Q (Dont work.)").SetValue(false));
+            Config.AddItem(new MenuItem("autoW", "Automatic W (Dont work.)").SetValue(false));
 
             var interrupt = Config.AddSubMenu(new Menu("Interrupt", "Interrupt"));
             interrupt.AddItem(new MenuItem("intQ", "Use Q").SetValue(true));
